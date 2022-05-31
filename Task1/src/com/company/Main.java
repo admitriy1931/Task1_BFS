@@ -23,11 +23,11 @@ public class Main {
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
-        String[] linesAsArrayW = lines.toArray(new String[lines.size()]);
+        String[] linesAsArrayWithSpace = lines.toArray(new String[lines.size()]);
         String[] linesAsArray = new String[lines.size()];
 
         for (int i = 0; i < lines.size(); i++) {
-            linesAsArray[i] = linesAsArrayW[i].replaceAll("\\s+", "");
+            linesAsArray[i] = linesAsArrayWithSpace[i].replaceAll("\\s+", "");
         }
         var countOfStr = Integer.parseInt(linesAsArray[0]);
         var countOfCol = Integer.parseInt(linesAsArray[1]);
@@ -40,10 +40,10 @@ public class Main {
                 } else map[x][y] = State.Empty;
             }
 
-        Point startPoint = new Point(Integer.parseInt(linesAsArrayW[2 + Integer.parseInt(linesAsArray[0])].split(" ")[0]) - 1,
-                Integer.parseInt(linesAsArrayW[2 + Integer.parseInt(linesAsArray[0])].split(" ")[1]) - 1);
-        Point endPoint = new Point(Integer.parseInt(linesAsArrayW[3 + Integer.parseInt(linesAsArray[0])].split(" ")[0]) - 1,
-                Integer.parseInt(linesAsArrayW[3 + Integer.parseInt(linesAsArray[0])].split(" ")[1]) - 1);
+        Point startPoint = new Point(Integer.parseInt(linesAsArrayWithSpace[2 + Integer.parseInt(linesAsArray[0])].split(" ")[0]) - 1,
+                Integer.parseInt(linesAsArrayWithSpace[2 + Integer.parseInt(linesAsArray[0])].split(" ")[1]) - 1);
+        Point endPoint = new Point(Integer.parseInt(linesAsArrayWithSpace[3 + Integer.parseInt(linesAsArray[0])].split(" ")[0]) - 1,
+                Integer.parseInt(linesAsArrayWithSpace[3 + Integer.parseInt(linesAsArray[0])].split(" ")[1]) - 1);
         var track = getTrack(map,startPoint,endPoint,countOfCol,countOfStr);
 
         var pathIt = endPoint;
