@@ -14,8 +14,11 @@ enum State
 }
 public class Main {
     public static void main(String[] args) {
+
+        var data = args[0];
+        var result = args[1];
         List<String> lines = new ArrayList();
-        try (BufferedReader reader = new BufferedReader(new FileReader("data"))) {
+        try (BufferedReader reader = new BufferedReader(new FileReader(data))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 lines.add(line);
@@ -53,7 +56,7 @@ public class Main {
             pathIt = track.get(pathIt);
         }
 
-        try(FileWriter writer = new FileWriter("res", false))
+        try(FileWriter writer = new FileWriter(result))
         {
             if (track.containsKey(res.get(0)) == false){
                 writer.append("N");
